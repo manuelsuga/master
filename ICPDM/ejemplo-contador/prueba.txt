@@ -1,0 +1,2 @@
+este fichero es una prueba de contador de palabras
+las palabras se contaran segun su numero de apariciones en este fichero
