@@ -1,0 +1,83 @@
+# Creación de un rdd a partir de un dataframe
+
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("RDDExample").getOrCreate()
+df = spark.read.csv("/census.csv")
+rdd = df.rdd
+
+# para ver los contenidos
+rdd.collect()
+
+datos = rdd.collect()
+for fila in datos:
+	print(fila)
+
+
+# operaciones sobre rdd
+rdd.map(funcion_map)
+
+------------------------------------------------------------------------
+
+ # Uso de lenguaje SQL en spark
+
+data = [("Alice", "HR", 30), ("Bob", "IT", 40), ("Cathy", "HR", 28)]
+columns = ["Name", "Department", "Age"]
+
+df = spark.createDataFrame(data, schema=columns)
+
+# Como si se creara una tabla temporal
+df.createOrReplaceTempView("people")
+
+result = spark.sql("SELECT Name, Age FROM people WHERE Age > 30")
+result.show()
+
+# Se puede acceder a los resultados como listas
+query_result = spark.sql("SELECT Name, Salary FROM employees WHERE Salary > 3000")high_earners = query_result.withColumn("Bonus", query_result.Salary * 0.1)
+high_earners.show()
+
+# Para obtener un resumen del df
+df.describe().show()
+
+------------------------------------------------------------------------
+
+# Es importante ir haciendo diferentes vistas temporales para los diferentes dataframes. El acceso a estas vistas es indicando el nombre en el FROM del SQL.
+
+# Existe la función cast(tipo) para cambiar el tipo de una columna
+df = df.withColumn("Salary", df["Salary"].cast("int"))
+
+# Ejemplo de agregación usando rdd y map:
+# primero se queda solo con dos columnas, departamento y salario
+rdd = df.rdd.map(lambda row: (row["Department"], row["Salary"]))
+
+# para cada fila (solo dos columnas) se reduce las dos columnas a solo una
+rdd_aggregated = rdd.reduceByKey(Lambda x, y: x + y)
+
+print(rdd_aggregated.collect())
+
+
+Mejores prácticas antes de realizar una agregración:
+	- Filtrar con anterioridad.
+	- Asegurarse que los datos están limpiios y con los tipos correctos.
+	- Evitar usar operaciones que usen todo el dataset.
+	- Elegir correctamente donde se van a realizar: si en RDD o en DataFrames (preferible)
+	- usar explain() to ver la ejecución.
+
+El uso de dataframes y SQL mejora la manipulación de datos.
+
+------------------------------------------------------------------------
+
+# para decir que los resultados se almacenen en cache:
+df.cache()
+
+# si se desea que se almacenen en memoria o en el disco
+df.persist(StorageLevel.lo_que_sea)
+
+# habrá que indicar que se elimine cuando no se use más
+df.unpersist()
+
+# para optimizar joins con pequeños datasets
+df.broadcast()
+
+# map() sobre groupby()
+
+

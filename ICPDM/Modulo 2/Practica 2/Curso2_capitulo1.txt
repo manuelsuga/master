@@ -1,0 +1,2 @@
+# Para cargar un archivo
+sc.textFile(ruta)

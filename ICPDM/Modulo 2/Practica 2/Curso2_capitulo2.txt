@@ -1,0 +1,82 @@
+RDD:
+	- Resilient: habilidad para soportar fallos
+	- Distributed: existencia repartida entre varios dispositivos
+	- Datasets: conjuntos de datos.
+
+Pueden ser casi cualquier cosa, como si fueran variables
+
+Un rdd se crea tal que:
+
+numRDD = sc.parallelize([1,2,3,4])
+helloRDD = sc.parallelize ("Hello world")
+
+A partir de un fichero de datos externo:
+sc.textFile
+
+En ambos casos se puede indicar el número de particiones a usar para almacenar el RDD.
+Para uno existente existe getNumPartitions para saber el número de particiones.
+
+------------------------------------------------------------------------
+
+Las operaciones son transformaciones y/o acciones.
+
+La transformación flatMap devuelve varios valores para cada uno de los elementos de entrada.
+
+Para extraer los elementos de un RDD: collect(), take(n) para los n primeros o first() para el primer elemento.
+
+count() para el número de elementos
+
+------------------------------------------------------------------------
+
+Se puede crear RDD con estructura de tuplas o bien definiendolos desde sobre las propias tuplas:
+my_tuple = [('Sam', 23), ('Mary', 34), ('Peter', 25)]
+pairRDD_tuple = sc.parallelize(my_tuple)
+
+o bien generándolas a partir de los datos que ya se tienen:
+my_list = ['Sam 23', 'Mary 34', 'Peter 25']
+regularRDD = sc.parallelize(my_list)
+pairRDD_RDD = regularRDD.map(Lambda s: (s.split(' ')[0], s.split(' ')[1]))
+
+En estos casos se considera clave el primer valor y valor el segundo. Algunos de las transformaciones que se pueden realizar son:
+
+	- reduceByKey(funcion):  combina valores con la misma clave
+regularRDD = sc.parallelize([("Messi", 23), ("Ronaldo", 34), ("Neymar", 22), ("Messi", 24)])
+pairRDD_reducebykey = regularRDD.reduceByKey(lambda x, y : x + y)
+pairRDD_reducebykey.collect()
+> [ ('Neymar', 22), ('Ronaldo', 34), ('Messi', 47) ]
+
+	- groupByKey(): agrupa valores con la misma clave
+airports = [ ("US", "JFK"), ("UK", "LHR"), ("FR", "CDG"), ("US", "SFO") ]
+regularRDD = sc.parallelize(airports)
+pairRDD_group = regularRDD.groupByKey().collect()
+for cont, air in pairRDD_group:
+print(cont, list(air))
+> FR ['CDG']
+> US ['JFK', 'SFO']
+> UK ['LHR']
+
+	- sortByKey()
+pairRDD_reducebykey_rev = pairRDD_reducebykey.map(lambda x: (x[1], x[0]))
+pairRDD_reducebykey_rev.sortByKey(ascending=False).collect()
+> [ (47, 'Messi'), (34, 'Ronaldo' ), (22, 'Neymar' ) ]
+
+	- join(): une dos RDD en base a sus claves.
+RDD1 = sc.parallelize([("Messi", 34), ("Ronaldo", 32), ("Neymar", 24) ])
+RDD2 = sc.parallelize([("Ronaldo", 80), ("Neymar", 120), ("Messi", 100) ])
+
+RDD1.join(RDD2).collect()
+> [('Neymar', (24, 120)), ('Ronaldo', (32, 80)), ('Messi', (34, 100))]
+
+------------------------------------------------------------------------
+
+la función reduce se suele usar para calcular el agregado de los elementos. La función que se indique en reduce() debe ser conmutativa.
+
+x = [1,3,4,6]
+RDD = sc.parallelize(x)
+RDD.reduce(Lambda x, y : x + y)
+
+El metodo saveAsTextFile() permite guardar el RDD en particiones como ficheros separados.
+Si se utiliza coalesce(1) se puede almacenar como un único fichero.
+
+countByKey() cuenta cuantos pares hay con la clave K.
+collectAsMap() retorna los pares clave valor en forma de mapa.

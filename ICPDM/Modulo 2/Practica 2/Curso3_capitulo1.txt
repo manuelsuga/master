@@ -1,0 +1,14 @@
+StructField(nombre, tipo, nulo si/no)
+
+------------------------------------------------------------------------
+
+Los archivos parquet:
+	- datos en formato columna
+	- permite aplicar predicados
+	- almacena informacion del esquema
+
+df = spark.read.format('parquet').load(ruta)
+df = spark.read.parquet(ruta)
+
+df.write.format('parquet').save(ruta)
+df.write.parquet(ruta)
