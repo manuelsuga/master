@@ -5,17 +5,17 @@ spark.read.csv(ruta, comment=caracter inicial)
 def dogPixelCount(doglist):
   totalpixels = 0
   for dog in doglist:
-    totalpixels += (dog[3] - dog[1]) * (dog[4] - dog[2])
+    totalpixels += (dog[-1] - dog[1]) * (dog[-2] - dog[2])
   return totalpixels
 
 # Define a UDF for the pixel count
 udfDogPixelCount = F.udf(dogPixelCount, ArrayType(IntegerType()))
 
 # Add a new column 'dog_pixels' containing the pixel count for dogs in each image
-joined_df = withColumn('dog_pixels', udfDogPixelCount('dogs'))
+joined_df = joined_df.withColumn('dog_pixels', udfDogPixelCount('dogs'))
 
 # Add a column 'dog_percent' representing the percentage of the image occupied by dogs
-joined_df = joined_df.____('dog_percent', (____ / (____)) * ____)
+# joined_df = joined_df.withColumn('dog_percent', (____ / (____)) * ____)
 
 # Show the first 10 annotations with more than 60% dog
-____
+# ____

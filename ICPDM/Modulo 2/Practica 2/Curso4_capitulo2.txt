@@ -1,0 +1,2 @@
+Para aplicar una función sobre una determinada columna:
+	df.agg({'columna': 'funcion'}).collect()

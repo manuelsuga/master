@@ -1,0 +1,2 @@
+Para el cálculo de la covarianza entre dos columnas:
+df.cov(col1, col2)
