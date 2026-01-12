@@ -1,0 +1,33 @@
+Crear dataframe a partir de RDD:
+
+iphones_RDD = sc.parallelize([
+	("XS", 2018, 5.65, 2.79, 6.24),
+	("XR", 2018, 5.94, 2.98, 6.84),
+	("X10", 2017, 5.65, 2.79, 6.13),
+	("8Plus", 2017, 6.23, 3.07, 7.12)
+])
+
+names = ['Model', 'Year', 'Height', 'Width', 'Weight' ]
+
+iphones_df = spark.createDataFrame(iphones_RDD, schema=names)
+
+------------------------------------------------------------------------
+
+eliminar duplicados de un dataframe
+
+df.dropDuplicates()
+
+Acceder a las columnas del esquema
+
+df.columns
+
+------------------------------------------------------------------------
+
+para visualizar dataframes: pyspark_dist_explote. Tiene tres funciones: hist(df, bins=n, color=...), distplot() y pandas_histogram().
+
+También se puede transformar los dataframes a un dataframe de pandas. No recomendado para grandes volúmenes de datos
+df.toPandas()
+
+Otra forma es HandySpark: 
+hdf = df.toHandy()
+hdf.cols[columna].hist()

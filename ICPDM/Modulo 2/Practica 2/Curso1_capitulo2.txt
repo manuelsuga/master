@@ -1,0 +1,70 @@
+# Drop rows with any nulls
+df_cleaned = df.na.drop()
+
+# Filter out nulls
+df_cleaned = df.where(col("columnName").isNotNull())
+
+# Fill nulls in the age column with the value 0
+df_filled = df.na.fill({"age": 0})
+
+# añadir columna
+df = df.withColumn(nueva_columna, valores)
+
+# cambiar nombre columna
+df = df.withColumnRenamed(antigua_columna, nueva_columna)
+
+# eliminar columna
+df = df.drop(columna)
+
+------------------------------------------------------------------------
+
+# Joining on id column using an inner join
+df_joined = df1.join(df2, on="id", how="inner")
+
+# Joining on columns with different names
+df_joined = df1.join(df2, on=condicion, tipo_union) 
+# se puede inner, left, right y outer
+
+# La unión. Deben tener el mismo esquema.
+df1.union(df2)
+
+# Para trabajar con arrays
+from pyspark.sql.functions import array, struct, lit
+df = df.withColumn("scores", array(lit(85), lit(90), lit(78)))
+
+# lit() es para un valor literal
+
+# con mapas
+from pyspark.sql.types import StructField, StructType, StringType, MapTyp
+
+schema = StructType([
+	StructField('name', StringType(), True),
+	StructField('properties', MapType(StringType(), StringType()), True)
+])
+
+# una structura determinada en una columna
+df = df.withColumn("name_struct", struct("first_name", "last_name"))
+
+------------------------------------------------------------------------
+
+UDF : funciones definidas por el usuari para trabajar con dataframes
+
+def funcion(valor):
+	return lo que sea
+
+funcion_udf = udf(funcion, tipo_aplicable)
+
+# ejemplo de uso
+df.withColum(nueva_columna, funcion_udf(lista de valores del tipo especificado))
+
+# Para datasets más grandes, operaciones complejas, cambios específicos a nivel de columnas y demás:
+from pyspark.functions import pandas_udf
+
+@pandas_udf("tipo_columna")
+def funcion(columna):
+	...
+
+
+
+
+

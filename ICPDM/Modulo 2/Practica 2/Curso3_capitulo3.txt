@@ -1,0 +1,22 @@
+Para comprobar si un DF está en caché:
+df.is_cached
+
+------------------------------------------------------------------------
+
+Se puede utilizar expresiones regulares para la lectura de ficheros:
+
+split_df = spark.read.csv('departures_*.txt.gz')
+
+------------------------------------------------------------------------
+
+Para ver las configuraciones:
+spark.conf.get(variable)
+
+Para cambiar el valor:
+spark.conf.set(variable, lo que sea)
+
+------------------------------------------------------------------------
+
+shuffling es la técnica de mover los datos entre diferentes ejecutores para completar una tarea. Esto se puede limitar usando 
+	.coalesce(num_partitions)
+	pyspark.sql.functions.broadcast(df): da una copia del objeto a cada ejecutor

@@ -1,0 +1,62 @@
+form pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName(nombre).getOrCreate()
+
+dataframe = spark.read.csv(ruta, columnas)
+
+dataframe.show()
+
+------------------------------------------------------------------------
+
+dataframe = spark.read.csv(ruta, header=True, inferSchema=True)
+
+# para ver el esquenma
+dataframe.printSchema()
+
+# número de filas:
+df.count()
+
+# agrupación según columna:
+df.groupBy(columna).show()
+
+# si se quiere realizar operaciones de agregado sobre los datos:
+df.groupBy(columna).agg({
+	nombre_ nueva_columna : *operación a realizar, como "avg" para la media*
+}).show()
+
+df.max().show()
+df.min().show()
+df.sum().show()
+
+# Como SQL. No obligatorio ese orden
+df.select(columnas).filter(condición).groupBy(columna)
+		.where(condicion) también se puede usar
+
+------------------------------------------------------------------------
+
+# para leer tipos de archivos
+spark.read.csv
+	.json
+	.parquet
+
+# para definir un esquema
+from pyspark.sql.types import (StructType,
+StructField, IntegerType,
+StringType, ArrayType)
+
+schema = StructType([
+	StructField("id", IntegerType(), True),
+	StructField("name", StringType(), True),
+	StructField("scores", ArrayType(IntegerType()), True)
+])
+
+df = spark.createDataFrame(data, schema=schema)
+
+# para ordenar
+df.sort() o df.orderBy()
+
+# para eliminar columnas nulas
+df.na.drop()
+
+-----------------------------------------------------------------------
+

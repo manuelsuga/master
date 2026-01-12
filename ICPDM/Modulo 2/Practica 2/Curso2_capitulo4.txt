@@ -1,0 +1,73 @@
+Las tres C de ML en MLlib:
+	- Filtrado (C)olaborativo: encontrar que tienen en común los usuarios. Se usa en sistemas de recomendación. O filtrado usuario-usuario para buscar aquellos que sean parecidos o filtrado item-item para buscar y recomendar objetos que sean similares dados un usuario. Se usa la clase Rating para crear una tupla de tres elementos que contiene el ID de usuario, el ID del objeto y la puntuación.
+
+from pyspark.mllib.recommendation import Rating
+r = Rating(user = 1, product = 2, rating = 5.0)
+
+ALS provee filtrado colaborativo, devolviendo un modelo que realiza predicciones de la puntuación esperada dados un id de persona y de usuario:
+
+modelo = ALS.train(ratings, rank=máxinma puntuacion, iterations)
+
+unrated_RDD = sc.parallelize([(1, 2), (1, 1)])
+predictions = model.predictAll(unrated_RDD)
+
+Se puede calcular el MSE entre las predicciones y lo real:
+
+pred_train = model.predictAll(train_rdd)
+
+# se crean los pares clave: (id persona, id producto) valor: puntuacion real
+ratios = train_rdd.map(lambda x: ((x[0], x[1]), x [2]))
+preds = pred_train.map(lambda x: ((x[0], x[1]), x[2]))
+
+union_ratios = ratios.join(preds)
+# queda como valor la puntuacion real y la predicha
+
+MSE = union_ratios.map(Lambda r: (r[1][0] - r[1][1]) ** 2).mean()
+
+
+	- Clasificación: usando Logistic Regression
+
+data = [
+	LabeledPoint(0.0, [o.0, 1.0]),
+	LabeledPoint(1.0, [1.0, 0.0]),
+]
+
+RDD = sc.parallelize(data)
+
+Lrm = LogisticRegressionWithLBFGS.train(RDD)
+
+Lrm.predict([1.0, 0.0])
+Lrm.predict([0.0, 1.0])
+
+
+	- Clustering: usando KMeans
+from pyspark.mllib.clustering import KMeans
+model = KMeans.train(RDD, k = 2, maxIterations = 10)
+model.clusterCenters
+
+Para calcular el error cometido:
+
+from math import sqrt
+def error(point) :
+	center = model. centers[model.predict(point)]
+	return sqrt(sum([x ** 2 for x in (point - center) ]))
+
+WSSSE = RDD.map(lambda point: error(point)).reduce(lambda x, y: x + y)
+print("Within Set Sum of Squared Error = " + str(WSSSE))
+
+------------------------------------------------------------------------
+
+data = sc.parallelize([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+training, test=data.randomSplit([0.6, 0.4])
+
+------------------------------------------------------------------------
+
+Dos tipos de vectores:
+	- Densos: se almacenan todas las posiciones
+		denseVec = Vectors.dense([1.0, 2.0, 3.0])
+
+	- Dispersos: se almacena la longitud del vector y las posiciones que tienen valor.
+		sparseVec = Vectors.sparse(4, {1: 1.0, 3: 5.5})
+
+También existe el punto etiquetado, para definir la clasificación de un punto del espacio:
+positive = LabeledPoint(etiqueta, lista de características)
