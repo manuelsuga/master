@@ -1,0 +1,41 @@
+Preprocessing Techniques for Text Mining - An Overview. Vijayarani, Ilamathi, Nithya
+
+Pasos a realizar:
+- tokenización
+- eliminación de palabras vacías (stop words): usando lista. También se pueden eliminar aquellas palabras que tienen una frecuencia muy baja
+- stemming
+
+
+
+Text Document Preprocessing and Dimension Reduction Techniques for Text Document Clustering. Ammar Ismael Kadhim, Yu-N Cheah, and Nurul Hashimah Ahamed
+
+Pasos a realizar:
+- tokenizacion
+- eliminación de palabras vacías. Se eliminan aquellas palabras palabras que solo aparezcan en 6 documentos o menos
+- stemming: algoritmo de porter
+
+
+
+Text Preprocessing For Unsupervised Learning: Why It Matters, When It Misleads, And What To Do About It. Matthew J. Denny and Arthur Spirling
+
+Acciones que se pueden realizar:
+- eliminar signos de puntuación y caracteres especiales según convengan.
+- eliminar números según convengan.
+- normalizar usando minúsculas.
+- stemming
+- eliminación de palabras vacías
+- eliminación de términos usados en menos del 1% de los documentos
+
+--
+
+Funciones de pesado: 
+	Frecuencia
+	TF-IDF
+
+Algoritmos:
+	K-medias (k = 7)
+	Aglutinamiento
+
+Métricas:
+	Precisión, cobertura y medida-F
+	matriz de confusión
