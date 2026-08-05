@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "69d28fffae6a3bb9bbf987dd"
+  },
+  "nombre": "manusuga",
+  "correo": "msuano2@alumno.uned.es",
+  "fecha_registro": 1767222000,
+  "favoritos": [
+    {
+      "$oid": "69d2a3feae6a3bb9bbf987e5"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69d28fffae6a3bb9bbf987de"
+  },
+  "nombre": "laurasuga",
+  "correo": "laurasuga@lookout.es",
+  "fecha_registro": 1767222000,
+  "favoritos": []
+},
+{
+  "_id": {
+    "$oid": "69d28fffae6a3bb9bbf987df"
+  },
+  "nombre": "sofiasava",
+  "correo": "sofiasava@glegoo.com",
+  "fecha_registro": 1767222000,
+  "favoritos": [
+    {
+      "$oid": "69d2a3feae6a3bb9bbf987e2"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69d28fffae6a3bb9bbf987e0"
+  },
+  "nombre": "daniel99",
+  "correo": "dan99el@hooya.es",
+  "fecha_registro": 1767222000,
+  "favoritos": [
+    {
+      "$oid": "69d2a3feae6a3bb9bbf987e2"
+    },
+    {
+      "$oid": "69d2a3feae6a3bb9bbf987e6"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "69d28fffae6a3bb9bbf987e1"
+  },
+  "nombre": "luci72gasa",
+  "correo": "luciagasa@glegoo.com",
+  "fecha_registro": 1767222000,
+  "favoritos": []
+}]

@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "69d2b044ae6a3bb9bbf987e7"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e2"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987df"
+  },
+  "valoracion": 5,
+  "fecha": 1767260000
+},
+{
+  "_id": {
+    "$oid": "69d2b044ae6a3bb9bbf987e8"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e3"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987df"
+  },
+  "valoracion": 2,
+  "fecha": 1767261000
+},
+{
+  "_id": {
+    "$oid": "69d2b044ae6a3bb9bbf987e9"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e4"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987df"
+  },
+  "valoracion": 0,
+  "fecha": 1767262000
+},
+{
+  "_id": {
+    "$oid": "69d2b044ae6a3bb9bbf987ea"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e2"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987e0"
+  },
+  "valoracion": 5,
+  "fecha": 1767260000
+},
+{
+  "_id": {
+    "$oid": "69d2b044ae6a3bb9bbf987eb"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e6"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987e0"
+  },
+  "valoracion": 5,
+  "fecha": 1767260000
+}]

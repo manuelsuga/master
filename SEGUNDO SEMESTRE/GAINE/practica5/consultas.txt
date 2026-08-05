@@ -1,0 +1,95 @@
+// ############################################################################
+// Apartado 2
+
+// Consulta 1
+MATCH (c:Club) ORDER BY c.nombre ASC RETURN c.nombre AS Club, c.ciudad AS Ciudad;
+
+// Consulta 2
+MATCH (c:Club)-[:JUEGA_EN_ESTADIO]->(e:Estadio) RETURN c.nombre, e.nombre;
+
+// Consulta 3
+MATCH (e:Entrenador)-[:ENTRENA_A]->(c:Club) ORDER BY c.nombre DESC RETURN e.nombre, c.nombre;
+
+// Consulta 4
+MATCH (j:Jugador)-[:JUEGA_EN]->(c:Club) RETURN COUNT(j) as total, c.nombre ORDER BY total ASC;
+
+// Consulta 5
+MATCH (p:Partido)-[:EQUIPO_LOCAL|EQUIPO_VISITANTE]->(c:Club) WHERE c.nombre='Albacete Balompie' RETURN p.partidoId;
+
+// Consulta 6
+MATCH (j:Jugador)-[:JUEGA_EN|JUGO_EN]->(c:Club) WITH j AS jugador, collect(DISTINCT c.nombre) AS clubes WHERE size(clubes) > 1 RETURN jugador.nombre, clubes ORDER BY size(clubes) DESC;
+
+// Consulta 7
+MATCH (j:Jugador)-[r:JUGO_PARTIDO]->(p:Partido) RETURN j.nombre, sum(r.goles) as totalGoles ORDER BY totalGoles DESC LIMIT 1;
+
+// Consulta 8
+MATCH (j:Jugador)-[r1:JUEGA_EN]->(c:Club) WITH j as jugador, c as clubActual MATCH (jugador)-[:JUGO_EN]->(clubActual) MATCH (jugador)-[:JUGO_EN|JUEGA_EN]->(c:Club) WITH jugador, collect(c.nombre) as historicoClubes  RETURN jugador.nombre, historicoClubes;
+
+// Consulta 9
+MATCH (j:Jugador)-[r:JUGO_PARTIDO]->(p:Partido) MATCH (j)-[:JUGO_EN]->(exClub:Club) MATCH (p)-[:EQUIPO_LOCAL|EQUIPO_VISITANTE]->(exClub) MATCH (j)-[:JUEGA_EN]->(clubActual:Club) WHERE r.goles > 0 AND exClub <> clubActual RETURN DISTINCT j.nombre, exClub.nombre;
+
+// ############################################################################
+// Apartado 3
+
+// Datos de personas, cuentas, puntos de contacto y países
+MERGE (pe1:Persona {nombre: "Manuel Suano Gallardo", dni : "12345678A"})
+MERGE (pe2:Persona {nombre: "Laura Muñoz Fernández", dni : "23456789B"})
+MERGE (pe3:Persona {nombre: "José Sánchez García", dni : "34567890C"})
+MERGE (c1:Cuenta {iban: "ES0100203122312342", balance: 1000000})
+MERGE (c2:Cuenta {iban: "IC0548549080398509384", balance: 35922})
+MERGE (c3:Cuenta {iban: "ES0109769078450988", balance: 5300})
+MERGE (c4:Cuenta {iban: "RS6758678456348450988", balance: 30000})
+MERGE (c5:Cuenta {iban: "ES0103487423874733", balance: 300})
+MERGE (md1:Medio {valor: "86.98.23.111"})
+MERGE (md2:Medio {valor: "124.2.53.6"})
+MERGE (pa1:Pais {nombre: 'Islas Caimán', paraiso_fiscal: true})
+MERGE (pa2:Pais {nombre: 'España', paraiso_fiscal: false})
+MERGE (pa3:Pais {nombre: 'Rusia', paraiso_fiscal: false})
+
+// Relaciones
+MERGE (pe1)-[:TITULAR]->(c1)
+MERGE (pe1)-[:TITULAR]->(c2)
+MERGE (pe2)-[:TITULAR]->(c3)
+MERGE (pe2)-[:TITULAR]->(c4)
+MERGE (pe3)-[:TITULAR]->(c5)
+
+MERGE (c1)-[:TRANSFIERE {importe: 50000, fecha: "2024-11-01"}]->(c2)
+MERGE (c2)-[:TRANSFIERE {importe: 20000, fecha: "2024-12-12"}]->(c4)
+MERGE (c4)-[:TRANSFIERE {importe: 5000, fecha: "2025-01-05"}]->(c3)
+MERGE (c3)-[:TRANSFIERE {importe: 300, fecha: "2025-01-029"}]->(c5)
+MERGE (c3)-[:TRANSFIERE {importe: 100, fecha: "2025-01-029"}]->(c1)
+MERGE (c3)-[:TRANSFIERE {importe: 700, fecha: "2025-01-029"}]->(c2)
+
+MERGE (pe1)-[:USA]->(md1)
+MERGE (pe2)-[:USA]->(md1)
+MERGE (pe3)-[:USA]->(md2)
+
+MERGE (c1)-[:REGISTRADA]->(pa2)
+MERGE (c2)-[:REGISTRADA]->(pa1)
+MERGE (c3)-[:REGISTRADA]->(pa2)
+MERGE (c4)-[:REGISTRADA]->(pa1)
+MERGE (c5)-[:REGISTRADA]->(pa2)
+
+MERGE (pe1)-[:RESIDE_EN]->(pa2)
+MERGE (pe2)-[:RESIDE_EN]->(pa3)
+MERGE (pe3)-[:RESIDE_EN]->(pa2)
+
+// Consultas sobre los datos
+MATCH (c:Cuenta)-[:REGISTRADA]->(p:Pais {paraiso_fiscal: true}) MATCH (pr:Persona)-[:TITULAR]->(c) WHERE c.balance > 10000 RETURN c.iban, c.balance, p.nombre, pr.nombre ORDER BY c.balance DESC;
+
+MATCH (origen:Cuenta)-[t:TRANSFIERE]->(destino:Cuenta)-[:REGISTRADA]->(p:Pais {paraiso_fiscal: true}) RETURN origen.iban, destino.iban, t.importe, p.nombre;
+
+MATCH (p1:Persona)-[:USA]->(md:Medio) MATCH (p2:Persona)-[:USA]->(md) WHERE p1 <> p2 WITH COLLECT(DISTINCT p2.nombre) as personas, md, p1 RETURN p1.nombre, personas, md.valor AS medio_compartido;
+
+MATCH (pe:Persona {dni: "12345678A"}) OPTIONAL MATCH (pe)-[:TITULAR]->(c:Cuenta)-[:REGISTRADA]->(pais:Pais) OPTIONAL MATCH (pe)-[:USA]->(md:Medio) RETURN pe.nombre, pe.dni, collect(DISTINCT c.iban) AS cuentas, collect(DISTINCT pais.nombre) AS paises, collect(DISTINCT md.valor) AS medios;
+
+MATCH (origen:Cuenta)-[t:TRANSFIERE]->(destino:Cuenta) WITH origen, count(t) AS num_transferencias, sum(t.importe) AS total, collect(t.importe) AS importes WHERE num_transferencias >= 2 RETURN origen.iban, num_transferencias, total, importes ORDER BY total DESC;
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,229 @@
+[{
+  "_id": {
+    "$oid": "69d2a3feae6a3bb9bbf987e2"
+  },
+  "titulo": "Huevos duros",
+  "descripcion": "Huevos cocidos en agua",
+  "autor": {
+    "$oid": "69d28fffae6a3bb9bbf987dd"
+  },
+  "fecha": 1767240000,
+  "ingredientes": [
+    {
+      "ingrediente": "huevo",
+      "cantidad": 1,
+      "unidad": "unidad"
+    }
+  ],
+  "pasos": [
+    {
+      "orden": 1,
+      "descripcion": "Meter el huevo en una cacerola pequeña y llenar de agua hasta que cubra el huevo"
+    },
+    {
+      "orden": 2,
+      "descripcion": "Calentar agua hasta que comience a hervir"
+    },
+    {
+      "orden": 3,
+      "descripcion": "Cuando comience a hervir, esperar 10 minutos aproximadamente"
+    },
+    {
+      "orden": 4,
+      "descripcion": "Vaciar la cacerola y echar agua fría"
+    },
+    {
+      "orden": 5,
+      "descripcion": "Pelar el huevo"
+    }
+  ],
+  "dificultad": "muy fácil",
+  "tiempo": 15,
+  "etiquetas": [
+    "huevo",
+    "cocer"
+  ]
+},
+{
+  "_id": {
+    "$oid": "69d2a3feae6a3bb9bbf987e3"
+  },
+  "titulo": "Pan con tomate",
+  "descripcion": "La clásica y deliciosa tostada de desayuno español",
+  "autor": {
+    "$oid": "69d28fffae6a3bb9bbf987dd"
+  },
+  "fecha": 1767245000,
+  "ingredientes": [
+    {
+      "ingrediente": "pan",
+      "cantidad": 1,
+      "unidad": "rebanada"
+    },
+    {
+      "ingrediente": "tomate maduro",
+      "cantidad": 0.5,
+      "unidad": "unidad"
+    },
+    {
+      "ingrediente": "aceite de oliva virgen extra",
+      "cantidad": 10,
+      "unidad": "ml"
+    },
+    {
+      "ingrediente": "sal",
+      "cantidad": 1,
+      "unidad": "pizca"
+    }
+  ],
+  "pasos": [
+    {
+      "orden": 1,
+      "descripcion": "Tostar la rebanada de pan al gusto"
+    },
+    {
+      "orden": 2,
+      "descripcion": "Rallar el tomate y extenderlo sobre el pan tostado"
+    },
+    {
+      "orden": 3,
+      "descripcion": "Añadir un chorrito de aceite de oliva y la pizca de sal por encima"
+    }
+  ],
+  "dificultad": "muy fácil",
+  "tiempo": 5,
+  "etiquetas": [
+    "desayuno",
+    "tostada",
+    "mediterráneo"
+  ]
+},
+{
+  "_id": {
+    "$oid": "69d2a3feae6a3bb9bbf987e4"
+  },
+  "titulo": "Quesadilla exprés",
+  "descripcion": "Tortilla de trigo rellena de queso fundido",
+  "autor": {
+    "$oid": "69d28fffae6a3bb9bbf987dd"
+  },
+  "fecha": 1767250000,
+  "ingredientes": [
+    {
+      "ingrediente": "tortilla de trigo",
+      "cantidad": 1,
+      "unidad": "unidad"
+    },
+    {
+      "ingrediente": "queso rallado para fundir",
+      "cantidad": 50,
+      "unidad": "gramos"
+    }
+  ],
+  "pasos": [
+    {
+      "orden": 1,
+      "descripcion": "Colocar la tortilla en una sartén caliente a fuego medio"
+    },
+    {
+      "orden": 2,
+      "descripcion": "Poner el queso en una mitad de la tortilla y doblarla por la mitad"
+    },
+    {
+      "orden": 3,
+      "descripcion": "Dorar por ambos lados hasta que el queso esté completamente fundido"
+    }
+  ],
+  "dificultad": "muy fácil",
+  "tiempo": 4,
+  "etiquetas": [
+    "cena rápida",
+    "queso",
+    "snack"
+  ]
+},
+{
+  "_id": {
+    "$oid": "69d2a3feae6a3bb9bbf987e5"
+  },
+  "titulo": "Yogur con miel y nueces",
+  "descripcion": "Un postre o merienda saludable y súper rápido",
+  "autor": {
+    "$oid": "69d28fffae6a3bb9bbf987de"
+  },
+  "fecha": 1767240000,
+  "ingredientes": [
+    {
+      "ingrediente": "yogur natural o griego",
+      "cantidad": 1,
+      "unidad": "unidad"
+    },
+    {
+      "ingrediente": "miel",
+      "cantidad": 1,
+      "unidad": "cucharada"
+    },
+    {
+      "ingrediente": "nueces peladas",
+      "cantidad": 15,
+      "unidad": "gramos"
+    }
+  ],
+  "pasos": [
+    {
+      "orden": 1,
+      "descripcion": "Verter el yogur en un bol pequeño"
+    },
+    {
+      "orden": 2,
+      "descripcion": "Añadir las nueces picadas con las manos y coronar con el hilo de miel"
+    }
+  ],
+  "dificultad": "muy fácil",
+  "tiempo": 2,
+  "etiquetas": [
+    "postre",
+    "saludable",
+    "sin cocinar"
+  ]
+},
+{
+  "_id": {
+    "$oid": "69d2a3feae6a3bb9bbf987e6"
+  },
+  "titulo": "Batido de plátano clásico",
+  "descripcion": "Bebida cremosa y energética para cualquier momento",
+  "autor": {
+    "$oid": "69d28fffae6a3bb9bbf987de"
+  },
+  "fecha": 1767245000,
+  "ingredientes": [
+    {
+      "ingrediente": "plátano maduro",
+      "cantidad": 1,
+      "unidad": "unidad"
+    },
+    {
+      "ingrediente": "leche",
+      "cantidad": 200,
+      "unidad": "ml"
+    }
+  ],
+  "pasos": [
+    {
+      "orden": 1,
+      "descripcion": "Pelar el plátano y trocearlo dentro del vaso de la batidora"
+    },
+    {
+      "orden": 2,
+      "descripcion": "Añadir la leche y triturar todo hasta que quede una mezcla homogénea"
+    }
+  ],
+  "dificultad": "muy fácil",
+  "tiempo": 3,
+  "etiquetas": [
+    "bebida",
+    "fruta",
+    "merienda"
+  ]
+}]

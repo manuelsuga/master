@@ -1,0 +1,902 @@
+[
+    {
+        "cliente": "Elena",
+        "fecha": "2024-11-10T00:00:00",
+        "total": 792.0,
+        "productos": [
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 3,
+                "precio_unitario": 108.28
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 4,
+                "precio_unitario": 116.79
+            }
+        ]
+    },
+    {
+        "cliente": "Fernando",
+        "fecha": "2023-07-26T00:00:00",
+        "total": 1185.29,
+        "productos": [
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 4,
+                "precio_unitario": 58.78
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 2,
+                "precio_unitario": 5.39
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 4,
+                "precio_unitario": 198.06
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 5,
+                "precio_unitario": 29.43
+            }
+        ]
+    },
+    {
+        "cliente": "Elena",
+        "fecha": "2023-08-22T00:00:00",
+        "total": 702.0,
+        "productos": [
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 175.5
+            }
+        ]
+    },
+    {
+        "cliente": "Elena",
+        "fecha": "2023-03-07T00:00:00",
+        "total": 1540.6,
+        "productos": [
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 5,
+                "precio_unitario": 179.95
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 1,
+                "precio_unitario": 180.35
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 3,
+                "precio_unitario": 153.5
+            }
+        ]
+    },
+    {
+        "cliente": "Javier",
+        "fecha": "2024-12-20T00:00:00",
+        "total": 244.25,
+        "productos": [
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 5,
+                "precio_unitario": 48.85
+            }
+        ]
+    },
+    {
+        "cliente": "Pedro",
+        "fecha": "2024-12-28T00:00:00",
+        "total": 20.17,
+        "productos": [
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 1,
+                "precio_unitario": 20.17
+            }
+        ]
+    },
+    {
+        "cliente": "Carlos",
+        "fecha": "2023-01-23T00:00:00",
+        "total": 2144.35,
+        "productos": [
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 2,
+                "precio_unitario": 155.81
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 3,
+                "precio_unitario": 182.29
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 5,
+                "precio_unitario": 195.98
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 2,
+                "precio_unitario": 152.98
+            }
+        ]
+    },
+    {
+        "cliente": "Elena",
+        "fecha": "2023-04-13T00:00:00",
+        "total": 134.03,
+        "productos": [
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 1,
+                "precio_unitario": 134.03
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2024-08-22T00:00:00",
+        "total": 1216.37,
+        "productos": [
+            {
+                "nombre": "Power Bank",
+                "cantidad": 5,
+                "precio_unitario": 117.63
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 5,
+                "precio_unitario": 7.48
+            },
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 26.37
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 3,
+                "precio_unitario": 161.78
+            }
+        ]
+    },
+    {
+        "cliente": "Pedro",
+        "fecha": "2024-06-23T00:00:00",
+        "total": 1002.3,
+        "productos": [
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 1,
+                "precio_unitario": 167.76
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 2,
+                "precio_unitario": 69.88
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 53.91
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 5,
+                "precio_unitario": 106.61
+            }
+        ]
+    },
+    {
+        "cliente": "Fernando",
+        "fecha": "2023-04-29T00:00:00",
+        "total": 512.37,
+        "productos": [
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 4,
+                "precio_unitario": 13.48
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 4,
+                "precio_unitario": 97.22
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 1,
+                "precio_unitario": 69.57
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2024-09-06T00:00:00",
+        "total": 1084.01,
+        "productos": [
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 2,
+                "precio_unitario": 70.5
+            },
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 188.38
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 4,
+                "precio_unitario": 5.62
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 3,
+                "precio_unitario": 55.67
+            }
+        ]
+    },
+    {
+        "cliente": "Ana",
+        "fecha": "2024-02-21T00:00:00",
+        "total": 353.91,
+        "productos": [
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 3,
+                "precio_unitario": 117.97
+            }
+        ]
+    },
+    {
+        "cliente": "María",
+        "fecha": "2024-09-16T00:00:00",
+        "total": 1087.73,
+        "productos": [
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 3,
+                "precio_unitario": 92.5
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 5,
+                "precio_unitario": 27.15
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 4,
+                "precio_unitario": 78.02
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 4,
+                "precio_unitario": 90.6
+            }
+        ]
+    },
+    {
+        "cliente": "María",
+        "fecha": "2024-06-03T00:00:00",
+        "total": 282.8,
+        "productos": [
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 4,
+                "precio_unitario": 70.7
+            }
+        ]
+    },
+    {
+        "cliente": "Lucía",
+        "fecha": "2024-09-05T00:00:00",
+        "total": 2071.77,
+        "productos": [
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 126.17
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 2,
+                "precio_unitario": 52.25
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 4,
+                "precio_unitario": 199.34
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 5,
+                "precio_unitario": 158.28
+            }
+        ]
+    },
+    {
+        "cliente": "Pedro",
+        "fecha": "2023-09-11T00:00:00",
+        "total": 1244.16,
+        "productos": [
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 3,
+                "precio_unitario": 104.49
+            },
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 5,
+                "precio_unitario": 107.43
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 3,
+                "precio_unitario": 131.18
+            }
+        ]
+    },
+    {
+        "cliente": "Pedro",
+        "fecha": "2023-11-30T00:00:00",
+        "total": 495.81,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 3,
+                "precio_unitario": 124.49
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 40.78
+            }
+        ]
+    },
+    {
+        "cliente": "Fernando",
+        "fecha": "2024-11-08T00:00:00",
+        "total": 1366.73,
+        "productos": [
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 2,
+                "precio_unitario": 147.32
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 3,
+                "precio_unitario": 162.0
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 1,
+                "precio_unitario": 106.15
+            },
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 3,
+                "precio_unitario": 139.88
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 5,
+                "precio_unitario": 12.06
+            }
+        ]
+    },
+    {
+        "cliente": "Pedro",
+        "fecha": "2023-11-02T00:00:00",
+        "total": 1347.89,
+        "productos": [
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 5,
+                "precio_unitario": 96.88
+            },
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 56.52
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 1,
+                "precio_unitario": 164.57
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 4,
+                "precio_unitario": 69.16
+            },
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 1,
+                "precio_unitario": 196.2
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2024-02-18T00:00:00",
+        "total": 2074.41,
+        "productos": [
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 5,
+                "precio_unitario": 189.77
+            },
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 3,
+                "precio_unitario": 166.9
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 98.98
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 2,
+                "precio_unitario": 163.96
+            }
+        ]
+    },
+    {
+        "cliente": "Javier",
+        "fecha": "2023-02-11T00:00:00",
+        "total": 1130.07,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 5,
+                "precio_unitario": 82.86
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 3,
+                "precio_unitario": 87.51
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 3,
+                "precio_unitario": 151.08
+            }
+        ]
+    },
+    {
+        "cliente": "Javier",
+        "fecha": "2023-07-06T00:00:00",
+        "total": 796.18,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 4,
+                "precio_unitario": 141.83
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 1,
+                "precio_unitario": 22.14
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 2,
+                "precio_unitario": 103.36
+            }
+        ]
+    },
+    {
+        "cliente": "Pedro",
+        "fecha": "2023-04-09T00:00:00",
+        "total": 1093.4,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 2,
+                "precio_unitario": 79.05
+            },
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 5,
+                "precio_unitario": 118.13
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 5,
+                "precio_unitario": 68.93
+            }
+        ]
+    },
+    {
+        "cliente": "Sofía",
+        "fecha": "2023-10-31T00:00:00",
+        "total": 2056.76,
+        "productos": [
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 1,
+                "precio_unitario": 178.53
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 5,
+                "precio_unitario": 66.06
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 4,
+                "precio_unitario": 182.67
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 5,
+                "precio_unitario": 163.45
+            }
+        ]
+    },
+    {
+        "cliente": "Ana",
+        "fecha": "2023-11-01T00:00:00",
+        "total": 1258.56,
+        "productos": [
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 162.32
+            },
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 3,
+                "precio_unitario": 78.52
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 4,
+                "precio_unitario": 93.43
+            }
+        ]
+    },
+    {
+        "cliente": "Elena",
+        "fecha": "2023-02-24T00:00:00",
+        "total": 252.48,
+        "productos": [
+            {
+                "nombre": "Power Bank",
+                "cantidad": 2,
+                "precio_unitario": 126.24
+            }
+        ]
+    },
+    {
+        "cliente": "María",
+        "fecha": "2023-07-12T00:00:00",
+        "total": 995.89,
+        "productos": [
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 1,
+                "precio_unitario": 130.97
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 117.41
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 2,
+                "precio_unitario": 194.03
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 1,
+                "precio_unitario": 124.63
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2024-03-09T00:00:00",
+        "total": 592.44,
+        "productos": [
+            {
+                "nombre": "Power Bank",
+                "cantidad": 4,
+                "precio_unitario": 148.11
+            }
+        ]
+    },
+    {
+        "cliente": "Ana",
+        "fecha": "2023-05-22T00:00:00",
+        "total": 1377.43,
+        "productos": [
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 2,
+                "precio_unitario": 181.61
+            },
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 2,
+                "precio_unitario": 190.63
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 2,
+                "precio_unitario": 197.95
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 3,
+                "precio_unitario": 73.87
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 1,
+                "precio_unitario": 15.44
+            }
+        ]
+    },
+    {
+        "cliente": "Fernando",
+        "fecha": "2024-11-01T00:00:00",
+        "total": 1284.64,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 3,
+                "precio_unitario": 115.12
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 4,
+                "precio_unitario": 119.35
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 3,
+                "precio_unitario": 153.96
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2024-05-26T00:00:00",
+        "total": 875.49,
+        "productos": [
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 42.18
+            },
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 3,
+                "precio_unitario": 67.47
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 3,
+                "precio_unitario": 99.31
+            },
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 1,
+                "precio_unitario": 161.67
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 4,
+                "precio_unitario": 11.19
+            }
+        ]
+    },
+    {
+        "cliente": "Sofía",
+        "fecha": "2023-09-03T00:00:00",
+        "total": 1287.84,
+        "productos": [
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 3,
+                "precio_unitario": 10.01
+            },
+            {
+                "nombre": "Ratón inalámbrico",
+                "cantidad": 5,
+                "precio_unitario": 124.01
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 159.44
+            }
+        ]
+    },
+    {
+        "cliente": "Ana",
+        "fecha": "2024-11-10T00:00:00",
+        "total": 1279.74,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 3,
+                "precio_unitario": 15.98
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 2,
+                "precio_unitario": 110.59
+            },
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 5,
+                "precio_unitario": 120.08
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 3,
+                "precio_unitario": 136.74
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2024-07-07T00:00:00",
+        "total": 1999.75,
+        "productos": [
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 3,
+                "precio_unitario": 180.47
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 4,
+                "precio_unitario": 83.11
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 110.26
+            },
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 196.62
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 1,
+                "precio_unitario": 95.0
+            }
+        ]
+    },
+    {
+        "cliente": "Javier",
+        "fecha": "2024-02-11T00:00:00",
+        "total": 1332.6,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 1,
+                "precio_unitario": 137.01
+            },
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 4,
+                "precio_unitario": 108.87
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 4,
+                "precio_unitario": 65.71
+            },
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 4,
+                "precio_unitario": 112.97
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 1,
+                "precio_unitario": 45.39
+            }
+        ]
+    },
+    {
+        "cliente": "Lucía",
+        "fecha": "2023-02-18T00:00:00",
+        "total": 760.83,
+        "productos": [
+            {
+                "nombre": "Cargador USB-C",
+                "cantidad": 3,
+                "precio_unitario": 90.3
+            },
+            {
+                "nombre": "Mochila para portátil",
+                "cantidad": 1,
+                "precio_unitario": 125.19
+            },
+            {
+                "nombre": "Power Bank",
+                "cantidad": 3,
+                "precio_unitario": 121.58
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2023-11-02T00:00:00",
+        "total": 1601.03,
+        "productos": [
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 118.36
+            },
+            {
+                "nombre": "Altavoces Bluetooth",
+                "cantidad": 4,
+                "precio_unitario": 79.98
+            },
+            {
+                "nombre": "Teclado mecánico",
+                "cantidad": 3,
+                "precio_unitario": 169.01
+            },
+            {
+                "nombre": "Monitor Full HD",
+                "cantidad": 4,
+                "precio_unitario": 104.75
+            }
+        ]
+    },
+    {
+        "cliente": "Clara",
+        "fecha": "2024-03-19T00:00:00",
+        "total": 421.65,
+        "productos": [
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 3,
+                "precio_unitario": 140.55
+            }
+        ]
+    },
+    {
+        "cliente": "María",
+        "fecha": "2023-06-30T00:00:00",
+        "total": 389.53,
+        "productos": [
+            {
+                "nombre": "Auriculares Bluetooth",
+                "cantidad": 3,
+                "precio_unitario": 94.77
+            },
+            {
+                "nombre": "SSD Externo",
+                "cantidad": 1,
+                "precio_unitario": 65.5
+            },
+            {
+                "nombre": "Funda para móvil",
+                "cantidad": 3,
+                "precio_unitario": 13.24
+            }
+        ]
+    }
+]

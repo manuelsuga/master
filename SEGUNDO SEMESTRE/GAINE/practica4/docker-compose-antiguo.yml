@@ -1,0 +1,61 @@
+services:
+  # --- NODO 1 ---
+  cassandra-node1:
+    image: cassandra:latest
+    container_name: cassandra-node1
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_CLUSTER_NAME=ClusterClaseDB
+      - CASSANDRA_SEEDS=cassandra-node1
+      - JVM_OPTS=-Xms512M -Xmx512M # Limita el uso de memoria RAM
+      - MAX_HEAP_SIZE=512M
+      - HEAP_NEWSIZE=100M
+    volumes:
+      - node1_data:/var/lib/cassandra
+    healthcheck:
+      test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  # --- NODO 2 ---
+  cassandra-node2:
+    image: cassandra:latest
+    container_name: cassandra-node2
+    ports:
+      - "9043:9042"
+    depends_on:
+      cassandra-node1:
+        condition: service_healthy
+    environment:
+      - CASSANDRA_CLUSTER_NAME=ClusterClaseDB
+      - CASSANDRA_SEEDS=cassandra-node1
+      - JVM_OPTS=-Xms512M -Xmx512M
+      - MAX_HEAP_SIZE=512M
+      - HEAP_NEWSIZE=100M
+    volumes:
+      - node2_data:/var/lib/cassandra
+
+  # --- NODO 3 ---
+  cassandra-node3:
+    image: cassandra:latest
+    container_name: cassandra-node3
+    ports:
+      - "9044:9042"
+    depends_on:
+      cassandra-node1:
+        condition: service_healthy
+    environment:
+      - CASSANDRA_CLUSTER_NAME=ClusterClaseDB
+      - CASSANDRA_SEEDS=cassandra-node1
+      - JVM_OPTS=-Xms512M -Xmx512M
+      - MAX_HEAP_SIZE=512M
+      - HEAP_NEWSIZE=100M
+    volumes:
+      - node3_data:/var/lib/cassandra
+
+volumes:
+  node1_data:
+  node2_data:
+  node3_data:

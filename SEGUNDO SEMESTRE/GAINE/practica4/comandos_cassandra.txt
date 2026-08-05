@@ -1,0 +1,136 @@
+-- Apartado 1
+
+-- Creación del KEYSPACE
+
+CREATE KEYSPACE IF NOT EXISTS logistica_flotas 
+WITH REPLICATION = {
+	'class' : 'NetworkTopologyStrategy', 
+	'datacenter1' : 3 
+};
+
+-- Creación de las tablas
+
+CREATE TABLE logistica_flotas.info_rutas_por_conductor (
+	idConductor text,
+	idRuta int,
+	fechaRuta date,
+	almacenOrigen text,
+	almacenDestino text,
+	horasEstimadas int,
+	PRIMARY KEY (idConductor, idRuta)
+);
+
+CREATE TABLE logistica_flotas.incidencias_conductores_por_ruta (
+	idRuta int,
+	idConductor text,
+	incidencias map<text, text>,
+	PRIMARY KEY (idRuta, idConductor)
+) WITH CLUSTERING ORDER BY (idConductor ASC);
+
+-- Esto para usar el KEYSPACE que se acaba de definir
+USE logistica_flotas;
+
+-- #############################################################################
+-- Apartado 2
+
+-- Primer caso
+
+INSERT INTO info_rutas_por_conductor (idConductor, idRuta, fechaRuta, almacenOrigen, almacenDestino, horasEstimadas) 
+VALUES ('Marcos87', 101, '2024-04-15', 'Madrid', 'Paris', 5);
+
+INSERT INTO incidencias_conductores_por_ruta (idRuta, idConductor, incidencias) 
+VALUES (101, 'Marcos87', {'Aduana' : 'Retraso de 2 horas en frontera'});
+
+-- Segundo caso
+
+INSERT INTO info_rutas_por_conductor (idConductor, idRuta, fechaRuta, almacenOrigen, almacenDestino, horasEstimadas) 
+VALUES ('CarlosR', 101, '2024-04-15', 'Zaragoza', 'Paris', 5); 
+
+INSERT INTO incidencias_conductores_por_ruta (idRuta, idConductor, incidencias)
+VALUES (101, 'CarlosR', {'Aduana' : 'Retraso de 2 horas en frontera'});
+
+-- Tercer caso
+
+INSERT INTO info_rutas_por_conductor (idConductor, idRuta, fechaRuta, almacenOrigen, almacenDestino, horasEstimadas) 
+VALUES ('EvaM33', 102, '2024-05-10', 'Valencia', 'Lisboa', 8);
+
+INSERT INTO incidencias_conductores_por_ruta (idRuta, idConductor, incidencias) 
+VALUES (102, 'EvaM33', {'Avería' : 'Pinchazo en rueda delantera'});
+
+-- Cuarto caso
+
+INSERT INTO info_rutas_por_conductor (idConductor, idRuta, fechaRuta, almacenOrigen, almacenDestino, horasEstimadas) 
+VALUES ('Marcos87', 103, '2024-06-01', 'Barcelona', 'Milán', 12);
+
+INSERT INTO incidencias_conductores_por_ruta (idRuta, idConductor, incidencias) 
+VALUES (103, 'Marcos87', {'Descanso' : 'Parada obligatoria de 45 mins'});
+
+-- Quinto caso
+
+INSERT INTO info_rutas_por_conductor (idConductor, idRuta, fechaRuta, almacenOrigen, almacenDestino, horasEstimadas) 
+VALUES ('Noel99', 103, '2024-06-01', 'Girona', 'Milán', 12); 
+
+INSERT INTO incidencias_conductores_por_ruta (idRuta, idConductor, incidencias) 
+VALUES (103, 'Noel99', {'Descanso' : 'Parada obligatoria de 45 mins'});
+
+-- #############################################################################
+-- Apartado 3
+
+-- Primera petición
+SELECT almacenOrigen, almacenDestino, fechaRuta, idRuta FROM info_rutas_por_conductor WHERE idConductor = 'Marcos87';
+
+-- Segunda petición
+SELECT idConductor, incidencias FROM incidencias_conductores_por_ruta WHERE idRuta = 101;
+
+-- Tercera petición
+SELECT almacenOrigen, almacenDestino, horasEstimadas FROM info_rutas_por_conductor WHERE idConductor = 'Marcos87' and fechaRuta >= '2024-05-01' ALLOW FILTERING;
+
+-- Cuarte petición
+SELECT incidencias FROM incidencias_conductores_por_ruta WHERE idConductor = 'CarlosR' and idRuta = 101;
+
+-- #############################################################################
+-- Apartado 4
+
+-- Primera consulta
+SELECT idRuta FROM info_rutas_por_conductor ORDER BY fechaRuta DESC;
+
+-- Segunda consulta
+SELECT idConductor FROM incidencias_conductores_por_ruta WHERE idRuta > 101;
+
+-- Tercera consulta
+UPDATE info_rutas_por_conductor SET fechaRuta = '2024-04-16' WHERE idConductor = 'Marcos87' and idRuta = 101;
+
+-- #############################################################################
+-- Apartado 5
+
+-- Primera consulta
+SELECT idRuta, idConductor FROM info_rutas_por_conductor WHERE fechaRuta = '2024-04-15' ALLOW FILTERING;
+
+-- Segunda consulta
+CREATE INDEX indice_fechaRuta ON info_rutas_por_conductor (fechaRuta);
+SELECT idRuta, idConductor FROM info_rutas_por_conductor WHERE fechaRuta = '2024-04-15';
+
+-- Tercera consulta
+CREATE TABLE fecha_rutas_por_conductor (
+	fechaRuta date,
+	idConductor text,
+	idRuta int,
+	PRIMARY KEY (fechaRuta, idRuta, idConductor)
+); 
+
+INSERT INTO fecha_rutas_por_conductor (fechaRuta, idConductor, idRuta) 
+VALUES ('2024-04-15', 'Marcos87', 101);
+
+SELECT idRuta, idConductor FROM fecha_rutas_por_conductor WHERE fechaRuta = '2024-04-15';
+
+-- #############################################################################
+-- Apartado 6
+
+-- Primera consulta
+CONSISTENCY QUORUM;
+
+-- Segunda consulta
+SELECT idRuta, idConductor FROM info_rutas_por_conductor WHERE fechaRuta = '2024-04-15' ALLOW FILTERING;
+
+-- Tercera consulta
+SELECT idRuta, idConductor FROM info_rutas_por_conductor WHERE fechaRuta = '2024-04-15' ALLOW FILTERING;

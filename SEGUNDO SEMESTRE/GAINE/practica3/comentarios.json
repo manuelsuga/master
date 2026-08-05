@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "69d517b9476afb5c2555e3f6"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e5"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987e1"
+  },
+  "texto": "Muy buena receta, a mi hijo le ha encantado",
+  "fecha": 1767260000
+},
+{
+  "_id": {
+    "$oid": "69d517b9476afb5c2555e3f7"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e4"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987e1"
+  },
+  "texto": "Genial, perfecta para cuando no tienes muchas ganas de cocinar",
+  "fecha": 1767261000
+},
+{
+  "_id": {
+    "$oid": "69d517b9476afb5c2555e3f8"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e3"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987df"
+  },
+  "texto": "Plato clásico, se le podría añadir cualquier ingrediente para conseguir mejores sabores",
+  "fecha": 1767262000
+},
+{
+  "_id": {
+    "$oid": "69d517b9476afb5c2555e3f9"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e2"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987e0"
+  },
+  "texto": "Sencillo y muy beneficioso, gran aporte de proteínas",
+  "fecha": 1767260000
+},
+{
+  "_id": {
+    "$oid": "69d517b9476afb5c2555e3fa"
+  },
+  "receta": {
+    "$oid": "69d2a3feae6a3bb9bbf987e5"
+  },
+  "usuario": {
+    "$oid": "69d28fffae6a3bb9bbf987e0"
+  },
+  "texto": "Perfecto. Recomiendo usar yogur griego",
+  "fecha": 1767260000
+}]

@@ -1,0 +1,485 @@
+////////////////////////////////////////////////////////////////////////
+// 1) LIMPIEZA
+////////////////////////////////////////////////////////////////////////
+
+MATCH (n) DETACH DELETE n;
+
+////////////////////////////////////////////////////////////////////////
+// 2) NODOS
+////////////////////////////////////////////////////////////////////////
+
+// Competiciones
+CREATE (comp1:Competicion {
+  competicionId:'COMP1',
+  nombre:'La Liga',
+  pais:'España'
+});
+
+CREATE (comp2:Competicion {
+  competicionId:'COMP2',
+  nombre:'Copa del Rey',
+  pais:'España'
+});
+
+// Temporada
+CREATE (temp1:Temporada {
+  temporadaId:'T2425',
+  nombre:'2024/2025'
+});
+
+// Estadios
+CREATE (est1:Estadio {
+  estadioId:'EST1',
+  nombre:'Santiago Bernabeu',
+  ciudad:'Madrid'
+});
+
+CREATE (est2:Estadio {
+  estadioId:'EST2',
+  nombre:'Camp Nou',
+  ciudad:'Barcelona'
+});
+
+CREATE (est3:Estadio {
+  estadioId:'EST3',
+  nombre:'Metropolitano',
+  ciudad:'Madrid'
+});
+
+CREATE (est4:Estadio {
+  estadioId:'EST4',
+  nombre:'Ramon Sanchez-Pizjuan',
+  ciudad:'Sevilla'
+});
+
+CREATE (est5:Estadio {
+  estadioId:'EST5',
+  nombre:'Carlos Belmonte',
+  ciudad:'Albacete'
+});
+
+// Clubes
+CREATE (club1:Club {
+  clubId:'CL1',
+  nombre:'Real Madrid',
+  ciudad:'Madrid'
+});
+
+CREATE (club2:Club {
+  clubId:'CL2',
+  nombre:'FC Barcelona',
+  ciudad:'Barcelona'
+});
+
+CREATE (club3:Club {
+  clubId:'CL3',
+  nombre:'Atletico de Madrid',
+  ciudad:'Madrid'
+});
+
+CREATE (club4:Club {
+  clubId:'CL4',
+  nombre:'Sevilla FC',
+  ciudad:'Sevilla'
+});
+
+CREATE (club5:Club {
+  clubId:'CL5',
+  nombre:'Albacete Balompie',
+  ciudad:'Albacete'
+});
+
+// Entrenadores
+CREATE (ent1:Entrenador {
+  entrenadorId:'E1',
+  nombre:'Carlo Vega'
+});
+
+CREATE (ent2:Entrenador {
+  entrenadorId:'E2',
+  nombre:'Xavi Soler'
+});
+
+CREATE (ent3:Entrenador {
+  entrenadorId:'E3',
+  nombre:'Diego Navarro'
+});
+
+CREATE (ent4:Entrenador {
+  entrenadorId:'E4',
+  nombre:'Jose Marquez'
+});
+
+CREATE (ent5:Entrenador {
+  entrenadorId:'E5',
+  nombre:'Ruben Alba'
+});
+
+// Jugadores
+CREATE (j1:Jugador {
+  jugadorId:'J1',
+  nombre:'Jude Martin',
+  posicion:'Centrocampista'
+});
+
+CREATE (j2:Jugador {
+  jugadorId:'J2',
+  nombre:'Vinicius Souza',
+  posicion:'Delantero'
+});
+
+CREATE (j3:Jugador {
+  jugadorId:'J3',
+  nombre:'Pedri Leon',
+  posicion:'Centrocampista'
+});
+
+CREATE (j4:Jugador {
+  jugadorId:'J4',
+  nombre:'Gavi Ruiz',
+  posicion:'Centrocampista'
+});
+
+CREATE (j5:Jugador {
+  jugadorId:'J5',
+  nombre:'Antoine Costa',
+  posicion:'Delantero'
+});
+
+CREATE (j6:Jugador {
+  jugadorId:'J6',
+  nombre:'Alvaro Morante',
+  posicion:'Delantero'
+});
+
+CREATE (j7:Jugador {
+  jugadorId:'J7',
+  nombre:'Sergio Ramos Jr',
+  posicion:'Defensa'
+});
+
+CREATE (j8:Jugador {
+  jugadorId:'J8',
+  nombre:'Manu Fuster',
+  posicion:'Centrocampista'
+});
+
+CREATE (j9:Jugador {
+  jugadorId:'J9',
+  nombre:'Higinio Marin',
+  posicion:'Delantero'
+});
+
+CREATE (j10:Jugador {
+  jugadorId:'J10',
+  nombre:'Bernabe Barragan',
+  posicion:'Portero'
+});
+
+////////////////////////////////////////////////////////////////////////
+// 3) RELACIONES ESTRUCTURALES
+////////////////////////////////////////////////////////////////////////
+
+// Clubes y estadios
+MATCH (club1:Club {clubId:'CL1'}), (est1:Estadio {estadioId:'EST1'})
+MERGE (club1)-[:JUEGA_EN_ESTADIO]->(est1);
+
+MATCH (club2:Club {clubId:'CL2'}), (est2:Estadio {estadioId:'EST2'})
+MERGE (club2)-[:JUEGA_EN_ESTADIO]->(est2);
+
+MATCH (club3:Club {clubId:'CL3'}), (est3:Estadio {estadioId:'EST3'})
+MERGE (club3)-[:JUEGA_EN_ESTADIO]->(est3);
+
+MATCH (club4:Club {clubId:'CL4'}), (est4:Estadio {estadioId:'EST4'})
+MERGE (club4)-[:JUEGA_EN_ESTADIO]->(est4);
+
+MATCH (club5:Club {clubId:'CL5'}), (est5:Estadio {estadioId:'EST5'})
+MERGE (club5)-[:JUEGA_EN_ESTADIO]->(est5);
+
+// Participacion en competiciones
+MATCH (club1:Club {clubId:'CL1'}), (comp1:Competicion {competicionId:'COMP1'})
+MERGE (club1)-[:PARTICIPA_EN]->(comp1);
+
+MATCH (club2:Club {clubId:'CL2'}), (comp1:Competicion {competicionId:'COMP1'})
+MERGE (club2)-[:PARTICIPA_EN]->(comp1);
+
+MATCH (club3:Club {clubId:'CL3'}), (comp1:Competicion {competicionId:'COMP1'})
+MERGE (club3)-[:PARTICIPA_EN]->(comp1);
+
+MATCH (club4:Club {clubId:'CL4'}), (comp1:Competicion {competicionId:'COMP1'})
+MERGE (club4)-[:PARTICIPA_EN]->(comp1);
+
+MATCH (club5:Club {clubId:'CL5'}), (comp2:Competicion {competicionId:'COMP2'})
+MERGE (club5)-[:PARTICIPA_EN]->(comp2);
+
+// Entrenadores
+MATCH (ent1:Entrenador {entrenadorId:'E1'}), (club1:Club {clubId:'CL1'})
+MERGE (ent1)-[:ENTRENA_A]->(club1);
+
+MATCH (ent2:Entrenador {entrenadorId:'E2'}), (club2:Club {clubId:'CL2'})
+MERGE (ent2)-[:ENTRENA_A]->(club2);
+
+MATCH (ent3:Entrenador {entrenadorId:'E3'}), (club3:Club {clubId:'CL3'})
+MERGE (ent3)-[:ENTRENA_A]->(club3);
+
+MATCH (ent4:Entrenador {entrenadorId:'E4'}), (club4:Club {clubId:'CL4'})
+MERGE (ent4)-[:ENTRENA_A]->(club4);
+
+MATCH (ent5:Entrenador {entrenadorId:'E5'}), (club5:Club {clubId:'CL5'})
+MERGE (ent5)-[:ENTRENA_A]->(club5);
+
+// Jugadores en clubes actuales
+MATCH (j1:Jugador {jugadorId:'J1'}), (club1:Club {clubId:'CL1'})
+MERGE (j1)-[:JUEGA_EN {desde:2023, dorsal:5, importe:0}]->(club1);
+
+MATCH (j2:Jugador {jugadorId:'J2'}), (club1:Club {clubId:'CL1'})
+MERGE (j2)-[:JUEGA_EN {desde:2020, dorsal:7, importe:0}]->(club1);
+
+MATCH (j3:Jugador {jugadorId:'J3'}), (club2:Club {clubId:'CL2'})
+MERGE (j3)-[:JUEGA_EN {desde:2021, dorsal:8, importe:0}]->(club2);
+
+MATCH (j4:Jugador {jugadorId:'J4'}), (club2:Club {clubId:'CL2'})
+MERGE (j4)-[:JUEGA_EN {desde:2022, dorsal:6, importe:0}]->(club2);
+
+MATCH (j5:Jugador {jugadorId:'J5'}), (club3:Club {clubId:'CL3'})
+MERGE (j5)-[:JUEGA_EN {desde:2022, dorsal:9, importe:5}]->(club3);
+
+MATCH (j6:Jugador {jugadorId:'J6'}), (club3:Club {clubId:'CL3'})
+MERGE (j6)-[:JUEGA_EN {desde:2023, dorsal:19, importe:2}]->(club3);
+
+MATCH (j7:Jugador {jugadorId:'J7'}), (club4:Club {clubId:'CL4'})
+MERGE (j7)-[:JUEGA_EN {desde:2023, dorsal:4, importe:0}]->(club4);
+
+MATCH (j8:Jugador {jugadorId:'J8'}), (club5:Club {clubId:'CL5'})
+MERGE (j8)-[:JUEGA_EN {desde:2024, dorsal:8, importe:3}]->(club5);
+
+MATCH (j9:Jugador {jugadorId:'J9'}), (club5:Club {clubId:'CL5'})
+MERGE (j9)-[:JUEGA_EN {desde:2022, dorsal:9, importe:0}]->(club5);
+
+MATCH (j10:Jugador {jugadorId:'J10'}), (club5:Club {clubId:'CL5'})
+MERGE (j10)-[:JUEGA_EN {desde:2021, dorsal:1, importe:0}]->(club5);
+
+////////////////////////////////////////////////////////////////////////
+// 4) HISTORIAL DE CLUBES Y TRAYECTORIAS
+////////////////////////////////////////////////////////////////////////
+
+// Trayectoria circular de Manu Fuster
+MATCH (j8:Jugador {jugadorId:'J8'}), (club5:Club {clubId:'CL5'})
+MERGE (j8)-[:JUGO_EN {desde:2019, hasta:2021, dorsal:10, importe:0}]->(club5);
+
+MATCH (j8:Jugador {jugadorId:'J8'}), (club4:Club {clubId:'CL4'})
+MERGE (j8)-[:JUGO_EN {desde:2021, hasta:2023, dorsal:17, importe:4}]->(club4);
+
+MATCH (j8:Jugador {jugadorId:'J8'}), (club3:Club {clubId:'CL3'})
+MERGE (j8)-[:JUGO_EN {desde:2023, hasta:2024, dorsal:21, importe:7}]->(club3);
+
+// Otros historiales
+MATCH (j5:Jugador {jugadorId:'J5'}), (club4:Club {clubId:'CL4'})
+MERGE (j5)-[:JUGO_EN {desde:2020, hasta:2022, dorsal:11, importe:0}]->(club4);
+
+MATCH (j6:Jugador {jugadorId:'J6'}), (club5:Club {clubId:'CL5'})
+MERGE (j6)-[:JUGO_EN {desde:2021, hasta:2023, dorsal:18, importe:0}]->(club5);
+
+MATCH (j7:Jugador {jugadorId:'J7'}), (club1:Club {clubId:'CL1'})
+MERGE (j7)-[:JUGO_EN {desde:2020, hasta:2023, dorsal:4, importe:0}]->(club1);
+
+////////////////////////////////////////////////////////////////////////
+// 5) PARTIDOS
+////////////////////////////////////////////////////////////////////////
+
+CREATE (p1:Partido {
+  partidoId:'P1',
+  fecha:date('2024-09-01'),
+  golesLocal:2,
+  golesVisitante:1
+});
+
+CREATE (p2:Partido {
+  partidoId:'P2',
+  fecha:date('2024-09-10'),
+  golesLocal:1,
+  golesVisitante:1
+});
+
+CREATE (p3:Partido {
+  partidoId:'P3',
+  fecha:date('2024-09-20'),
+  golesLocal:0,
+  golesVisitante:2
+});
+
+CREATE (p4:Partido {
+  partidoId:'P4',
+  fecha:date('2024-10-01'),
+  golesLocal:2,
+  golesVisitante:0
+});
+
+// Relaciones de partidos
+MATCH (p1:Partido {partidoId:'P1'}), (club1:Club {clubId:'CL1'})
+MERGE (p1)-[:EQUIPO_LOCAL]->(club1);
+
+MATCH (p1:Partido {partidoId:'P1'}), (club2:Club {clubId:'CL2'})
+MERGE (p1)-[:EQUIPO_VISITANTE]->(club2);
+
+MATCH (p1:Partido {partidoId:'P1'}), (comp1:Competicion {competicionId:'COMP1'})
+MERGE (p1)-[:EN_COMPETICION]->(comp1);
+
+MATCH (p1:Partido {partidoId:'P1'}), (temp1:Temporada {temporadaId:'T2425'})
+MERGE (p1)-[:EN_TEMPORADA]->(temp1);
+
+MATCH (p1:Partido {partidoId:'P1'}), (est1:Estadio {estadioId:'EST1'})
+MERGE (p1)-[:SE_JUGO_EN]->(est1);
+
+// Partido 2
+MATCH (p2:Partido {partidoId:'P2'}), (club5:Club {clubId:'CL5'})
+MERGE (p2)-[:EQUIPO_LOCAL]->(club5);
+
+MATCH (p2:Partido {partidoId:'P2'}), (club3:Club {clubId:'CL3'})
+MERGE (p2)-[:EQUIPO_VISITANTE]->(club3);
+
+MATCH (p2:Partido {partidoId:'P2'}), (comp2:Competicion {competicionId:'COMP2'})
+MERGE (p2)-[:EN_COMPETICION]->(comp2);
+
+MATCH (p2:Partido {partidoId:'P2'}), (temp1:Temporada {temporadaId:'T2425'})
+MERGE (p2)-[:EN_TEMPORADA]->(temp1);
+
+MATCH (p2:Partido {partidoId:'P2'}), (est5:Estadio {estadioId:'EST5'})
+MERGE (p2)-[:SE_JUGO_EN]->(est5);
+
+// Partido 3
+MATCH (p3:Partido {partidoId:'P3'}), (club4:Club {clubId:'CL4'})
+MERGE (p3)-[:EQUIPO_LOCAL]->(club4);
+
+MATCH (p3:Partido {partidoId:'P3'}), (club5:Club {clubId:'CL5'})
+MERGE (p3)-[:EQUIPO_VISITANTE]->(club5);
+
+MATCH (p3:Partido {partidoId:'P3'}), (comp2:Competicion {competicionId:'COMP2'})
+MERGE (p3)-[:EN_COMPETICION]->(comp2);
+
+MATCH (p3:Partido {partidoId:'P3'}), (temp1:Temporada {temporadaId:'T2425'})
+MERGE (p3)-[:EN_TEMPORADA]->(temp1);
+
+MATCH (p3:Partido {partidoId:'P3'}), (est4:Estadio {estadioId:'EST4'})
+MERGE (p3)-[:SE_JUGO_EN]->(est4);
+
+// Partido 4
+MATCH (p4:Partido {partidoId:'P4'}), (club5:Club {clubId:'CL5'})
+MERGE (p4)-[:EQUIPO_LOCAL]->(club5);
+
+MATCH (p4:Partido {partidoId:'P4'}), (club4:Club {clubId:'CL4'})
+MERGE (p4)-[:EQUIPO_VISITANTE]->(club4);
+
+MATCH (p4:Partido {partidoId:'P4'}), (comp2:Competicion {competicionId:'COMP2'})
+MERGE (p4)-[:EN_COMPETICION]->(comp2);
+
+MATCH (p4:Partido {partidoId:'P4'}), (temp1:Temporada {temporadaId:'T2425'})
+MERGE (p4)-[:EN_TEMPORADA]->(temp1);
+
+MATCH (p4:Partido {partidoId:'P4'}), (est5:Estadio {estadioId:'EST5'})
+MERGE (p4)-[:SE_JUGO_EN]->(est5);
+
+////////////////////////////////////////////////////////////////////////
+// 6) PARTICIPACION DE JUGADORES EN PARTIDOS
+////////////////////////////////////////////////////////////////////////
+
+// Partido 1
+MATCH (j1:Jugador {jugadorId:'J1'}), (p1:Partido {partidoId:'P1'})
+MERGE (j1)-[:JUGO_PARTIDO {minutos:90, goles:1, asistencias:0, amarillas:0, rojas:0}]->(p1);
+
+MATCH (j2:Jugador {jugadorId:'J2'}), (p1:Partido {partidoId:'P1'})
+MERGE (j2)-[:JUGO_PARTIDO {minutos:88, goles:1, asistencias:1, amarillas:0, rojas:0}]->(p1);
+
+MATCH (j3:Jugador {jugadorId:'J3'}), (p1:Partido {partidoId:'P1'})
+MERGE (j3)-[:JUGO_PARTIDO {minutos:90, goles:1, asistencias:0, amarillas:0, rojas:0}]->(p1);
+
+MATCH (j4:Jugador {jugadorId:'J4'}), (p1:Partido {partidoId:'P1'})
+MERGE (j4)-[:JUGO_PARTIDO {minutos:90, goles:0, asistencias:0, amarillas:1, rojas:0}]->(p1);
+
+// Partido 2
+MATCH (j8:Jugador {jugadorId:'J8'}), (p2:Partido {partidoId:'P2'})
+MERGE (j8)-[:JUGO_PARTIDO {minutos:90, goles:0, asistencias:1, amarillas:0, rojas:0}]->(p2);
+
+MATCH (j9:Jugador {jugadorId:'J9'}), (p2:Partido {partidoId:'P2'})
+MERGE (j9)-[:JUGO_PARTIDO {minutos:90, goles:1, asistencias:0, amarillas:0, rojas:0}]->(p2);
+
+MATCH (j10:Jugador {jugadorId:'J10'}), (p2:Partido {partidoId:'P2'})
+MERGE (j10)-[:JUGO_PARTIDO {minutos:90, goles:0, asistencias:0, amarillas:0, rojas:0}]->(p2);
+
+MATCH (j5:Jugador {jugadorId:'J5'}), (p2:Partido {partidoId:'P2'})
+MERGE (j5)-[:JUGO_PARTIDO {minutos:90, goles:1, asistencias:0, amarillas:0, rojas:0}]->(p2);
+
+MATCH (j6:Jugador {jugadorId:'J6'}), (p2:Partido {partidoId:'P2'})
+MERGE (j6)-[:JUGO_PARTIDO {minutos:85, goles:0, asistencias:0, amarillas:1, rojas:0}]->(p2);
+
+// Partido 3
+MATCH (j7:Jugador {jugadorId:'J7'}), (p3:Partido {partidoId:'P3'})
+MERGE (j7)-[:JUGO_PARTIDO {minutos:90, goles:0, asistencias:0, amarillas:1, rojas:0}]->(p3);
+
+MATCH (j8:Jugador {jugadorId:'J8'}), (p3:Partido {partidoId:'P3'})
+MERGE (j8)-[:JUGO_PARTIDO {minutos:90, goles:1, asistencias:0, amarillas:0, rojas:0}]->(p3);
+
+MATCH (j9:Jugador {jugadorId:'J9'}), (p3:Partido {partidoId:'P3'})
+MERGE (j9)-[:JUGO_PARTIDO {minutos:86, goles:1, asistencias:1, amarillas:0, rojas:0}]->(p3);
+
+MATCH (j10:Jugador {jugadorId:'J10'}), (p3:Partido {partidoId:'P3'})
+MERGE (j10)-[:JUGO_PARTIDO {minutos:90, goles:0, asistencias:0, amarillas:0, rojas:0}]->(p3);
+
+// Partido 4
+MATCH (j8:Jugador {jugadorId:'J8'}), (p4:Partido {partidoId:'P4'})
+MERGE (j8)-[:JUGO_PARTIDO {minutos:90, goles:1, asistencias:1, amarillas:0, rojas:0}]->(p4);
+
+MATCH (j9:Jugador {jugadorId:'J9'}), (p4:Partido {partidoId:'P4'})
+MERGE (j9)-[:JUGO_PARTIDO {minutos:87, goles:1, asistencias:0, amarillas:0, rojas:0}]->(p4);
+
+MATCH (j10:Jugador {jugadorId:'J10'}), (p4:Partido {partidoId:'P4'})
+MERGE (j10)-[:JUGO_PARTIDO {minutos:90, goles:0, asistencias:0, amarillas:0, rojas:0}]->(p4);
+
+MATCH (j7:Jugador {jugadorId:'J7'}), (p4:Partido {partidoId:'P4'})
+MERGE (j7)-[:JUGO_PARTIDO {minutos:90, goles:0, asistencias:0, amarillas:0, rojas:0}]->(p4);
+
+////////////////////////////////////////////////////////////////////////
+// 7) COMPROBACIONES
+////////////////////////////////////////////////////////////////////////
+
+CALL {
+  MATCH (c:Club)
+  RETURN count(c) AS clubes
+}
+CALL {
+  MATCH (e:Estadio)
+  RETURN count(e) AS estadios
+}
+CALL {
+  MATCH (j:Jugador)
+  RETURN count(j) AS jugadores
+}
+CALL {
+  MATCH (p:Partido)
+  RETURN count(p) AS partidos
+}
+CALL {
+  MATCH ()-[r:JUEGA_EN_ESTADIO]->()
+  RETURN count(r) AS relacionesJuegaEnEstadio
+}
+CALL {
+  MATCH ()-[r:JUEGA_EN]->()
+  RETURN count(r) AS relacionesJuegaEn
+}
+CALL {
+  MATCH ()-[r:JUGO_EN]->()
+  RETURN count(r) AS relacionesJugoEn
+}
+CALL {
+  MATCH ()-[r:JUGO_PARTIDO]->()
+  RETURN count(r) AS relacionesJugoPartido
+}
+RETURN
+  clubes,
+  estadios,
+  jugadores,
+  partidos,
+  relacionesJuegaEnEstadio,
+  relacionesJuegaEn,
+  relacionesJugoEn,
+  relacionesJugoPartido;
