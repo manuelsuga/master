@@ -1,0 +1,16 @@
+** Intro
+
+ISL 8.2.3
+
+** AdaBoost
+
+BFA 1.2
+	BFA 1.2.1
+	BFA 1.2.3
+
+** Intensificación de gradiente
+
+ESL 10.9
+ESL 10.10
+ESL 10.13
+ESL 10.14

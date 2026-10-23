@@ -1,0 +1,30 @@
+** sesgo/varianza
+
+ISL 2.2.2
+EST 7.1-7.3
+	Ecuación 7.9
+	Figura 7.2
+	Ejemplo 7.3.1
+URF 4.1
+	Figura 4.1
+	Figura 4.2
+
+
+** Bootstraping
+
+WIB - https://www.thoughtco.com/what-is-bootstrapping-in-statistics-3126172
+
+** Bagging
+
+ISL 8.2.1
+ESL 8.7
+ESL 8.7.1
+	Ejemplo
+	Ecuación 8.52
+
+** Bosques aleatorios
+
+ESL 15
+ESL 15.2
+ESL 15.3
+ESL 15.4

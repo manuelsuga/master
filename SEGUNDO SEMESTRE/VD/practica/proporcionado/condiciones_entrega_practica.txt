@@ -1,0 +1,18 @@
+Esta es la única entrega evaluable y deberá incluir un fichero comprimido (E2-apellidos-nombre-estudiante.zip) con los siguientes elementos
+
+E2-apellidos-nombre-estudiante.pdf 
+La memoria del caso práctico, que incluirá la explicación del trabajo realizado, la implementación y la visualización resultante. El formato de esta memoria será un documento PDF que deberá contener, al menos, los siguientes apartados, y su tamaño estará limitado
+
+	Portada (Título, autor y resumen)                                    	(1 pg.)
+	Planteamiento del problema y objetivos de la visualización           	(1-2 pgs)
+	Preparación de los datos (preprocesado)                       		(máx. 3 pgs)
+	Procesado y análisis (estudios y visualizaciones parciales) 		(máx. 8 pgs)
+	Visualización (integración de los resultados parciales)       		(máx. 4 pgs)
+	Discusión, Conclusiones y posibles mejoras.                     	(máx. 2 pgs)
+
+Todos los ficheros, tanto de código como de datos (dataset), necesarios para que el equipo docente pueda ejecutar la visualización. Si, además, se ha subido a internet y se puede ejecutar en un explorador, deberá asegurarse de que funciona correctamente y de que se ha proporcionado acceso.
+
+Vídeo-presentación de la visualización (solo en el caso de presentación offline).
+Es importante tener en cuenta que la memoria presentada servirá para evaluar la asignatura de “Visualización de Datos”, por tanto, es importante no solo el resultado final, la visualización implementada, sino justificar las decisiones de diseño tomadas. Por ejemplo, no vale con seleccionar una paleta de colores para uniformizar la visualización, sino que es necesario justificar por qué se ha elegido esa paleta, explicitando la relación de los colores elegidos con el objetivo de la visualización.
+
+La presentación del trabajo realizado se ha considerado como una manera de obtener el 10% (1 punto) dedicado a “Otras actividades evaluables” en la evaluación de la asignatura. Se proponen dos opciones presentación online y offline. La presentación online se realizará en directo y consistirá en 10 minutos de exposición por parte del estudiante, más un turno de preguntas por parte de los evaluadores para aclarar o profundizar en algún punto. La presentación offline consistirá en un video de 10 minutos máximo en formato mp4.
